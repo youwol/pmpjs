@@ -7,7 +7,7 @@
         "compile-lib": "cmake --build ./build",
         "compile-dev": "npm run compile-lib && emcc -I ./external/eigen/ -I ./src -s WASM=1 --bind src/pmp/bindings.cxx ./build/libpmp.a -s DISABLE_EXCEPTION_CATCHING=0 -s ASSERTIONS=0 -O0 -s ALLOW_MEMORY_GROWTH=1 -s EXPORT_ES6=0 -s SINGLE_FILE=1 -o ../js/pmp.js -s MODULARIZE=1 && python rename.py",
         "compile-prod": "npm run compile-lib && emcc -I ./external/eigen/ -I ./src -s WASM=1 --bind src/pmp/bindings.cxx ./build/libpmp.a -s DISABLE_EXCEPTION_CATCHING=0 -s ASSERTIONS=0 -O3 -s ALLOW_MEMORY_GROWTH=1 -s EXPORT_ES6=0 -s SINGLE_FILE=1 -o ../js/pmp.js -s MODULARIZE=1 && python rename.py",
-        "doc": "typedoc documentation --excludePrivate --disableSources -name 'PMP C++ library in JavaScript' --out ../docs --includeVersion --hideGenerator"
+        "doc": "typedoc documentation --excludePrivate --disableSources -name 'PMP C++ library in JavaScript' --out ../docs --hideGenerator --media ."
     },
     "author": "",
     "license": "MIT",
