@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head></head>
+	<body>
+        <!-- <script src="pmp.js"></script> -->
+		<script type="module">
+            import Module from '/pmp.js'
+            Module().then( pmp => {
+                //const pmp = window.pmp
+                const surface = new pmp.SurfaceMesh()
+                const builder = new pmp.SurfaceBuilder(surface)
+
+                builder.addVertex(0,0,0)
+                builder.addVertex(1,0,0)
+                builder.addVertex(1,1,0)
+                builder.addTriangle(0,1,2)
+
+                pmp.uniformRemesh  (surface, 0.01, 10, true)
+                pmp.forEachVertex  (surface, (x,y,z) => console.log(x,y,z) )
+                pmp.forEachTriangle(surface, (i,j,k) => console.log(i,j,k) )
+                pmp.curvatures     (surface, (mean, gauss, min, max) => console.log(mean, gauss, min, max) )
+            })
+		</script>
+	</body>
+</html>
